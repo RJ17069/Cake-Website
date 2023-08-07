@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CAKE BAKERS</title>
+        <link rel="stylesheet" href="/CSS/styles.css">
+        <link rel="icon" href="favicon (1).ico">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    </head>
+
+    <body class="body-cake">
+        <!-- navigation starts -->
+        <div class="container-fluid">
+            
+                <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light" id="ftco-navbar" style="position: absolute;">
+                    <div class="container">
+                        <a href="#" class="navbar-brand">CAKE BAKERS</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                        <div class="collpase navbar-collapse" id="ftco-nav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                                <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                                <li class="nav-item"><a href="#Product" class="nav-link">Product</a></li>
+                                <li class="nav-item"><a href="#chef" class="nav-link">Chef</a></li>
+                                <% if (user){ %>
+                                    <li class="nav-item"><a href="/logout" class="nav-link">
+                                        <button type="button" class="btn btn-dark">Hi <%= user.username %></button>
+                                    </a></li>
+                                <% }else{ %>
+                                    <% if (user && user.admin == 1){ %>
+                                       
+                                        <li class="nav-item"><a href="/admin/page" class="nav-link">
+                                            <button type="button" class="btn btn-dark">Admin Area</button>
+                                        </a></li>
+                                    <% }else{%>
+
+                                
+                                <li class="nav-item"><a href="/login" class="nav-link">
+                                    <button type="button" class="btn btn-dark">Login</button>
+                                </a></li>
+                            <% } %>
+                            <% } %>
+                            </ul>
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                              </form>
+                        </div>
+                    </div>
+                </nav>
+                <!-- navigation ends -->
+                
+                
+        <!-- slider  section start -->
+        <section class="First-div">
+            <div id="carouselControl" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/bg_1.jpg" class="d-block pic1 w-100" alt="...">
+                        <div class="carousel-caption ">
+                            <span class="subheading">CAKE BAKERS</span>
+                            <p class="p-subheading">Birthday Cake</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/bg_2.jpg" class="d-block pic1 w-100" alt="...">
+                        <div class="carousel-caption ">
+                            <span class="subheading">CAKE BAKERS</span>
+                            <p class="p-subheading">Wedding Cake</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/bg_3.jpg" class="d-block pic1 w-100" alt="...">
+                        <div class="carousel-caption ">
+                            <span class="subheading">CAKE BAKERS</span>
+                            <p class="p-subheading">Special</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/bg_4.jpg" class="d-block pic1 w-100" alt="...">
+                        <div class="carousel-caption ">
+                            <span class="subheading">CAKE BAKERS</span>
+                            <p class="p-subheading">Special</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselControl" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselControl" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        
+        
+        </section>
+    </div>
+        <!-- slider  section ends -->
+        <!-- featured section starts  -->
+        <section class="product-js" id="Product">
+            <%- messages('message', locals) %>
+            <div class="background-image">
+            <div class="container-fluid">
+                <div>
+                    <span class="subheading"><h1>Product</h1></span>
+                    <h2 class="mb-4">The Varity That We Provide</h2>
+                </div>
+                <div class="row feature">
+                    <div class="col-lg-3 col-sm-12 col-md-6" data-aos="fade-up">
+                        <img class="product-image" src="/images/b1.jpg" class="d-block pic1 w-100" alt="...">
+                        <h3>Desert</h3>
+                        <p><span>Chocolate</span>,
+                        <span>Sprinkles</span>,<span>Strawberry</span>,<span>Waffers</span></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 col-md-6" data-aos="fade-up">
+                        <img class="product-image" src="/images/b2.jpg" class="d-block pic1 w-100" alt="...">
+                        <h3>Chocolate Cake</h3>
+                        <p><span>Chocolate</span>,
+                        <span>Sprinkles</span>,<span>Strawberry</span>,<span>Waffers</span></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 col-md-6" data-aos="fade-up">
+                        <img class="product-image" src="/images/b3.jpg" class="d-block pic1 w-100" alt="...">
+                        <h3>Pastry</h3>
+                        <p><span>Chocolate</span>,
+                        <span>Sprinkles</span>,<span>Strawberry</span>,<span>Waffers</span>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 col-md-6" data-aos="fade-up">
+                        <img class="product-image" src="/images/b4.jpg" class="d-block pic1 w-100" alt="...">
+                        <h3>Donuts</h3>
+                        <p><span>Chocolate</span>,
+                        <span>Sprinkles</span>,<span>Strawberry</span>,<span>Waffers</span></p>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+    </div>
+    <!-- featured section ends  -->
+        <!-- about us section starts  -->
+        <section class="ftco-wrap-about" id="about">
+        <div class="intro">
+            <div class="container">
+                <div class="row" >
+                    <div class="intro_content">
+                    <div class="intro_subtitle page_subtitle">About Us</div>
+                    <div class="intro_title">
+                        <h2>Beautiful Story</h2>
+                    </div>
+                    <div class="intro_text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, voluptatum, earum
+                            corrupti molestiae id, alias quaerat qui expedita voluptatibus sed magnam aperiam
+                            quos! Illum quo nobis repellat possimus alias reiciendis quas pariatur, labore
+                            maxime blanditiis. Nam perferendis veritatis necessitatibus? Animi distinctio at et
+                            assumenda doloremque possimus unde doloribus aliquid nobis.</p>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col" data-aos="fade-down-left">
+                    <img class="intro" src="/images/intro_1.jpg" alt="intro">
+                </div>
+                <div class="col" data-aos="fade-down-right">
+                    <img class="intro"  src="/images/intro_2.jpg" alt="intro">
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            <!-- about us section ends  -->
+
+    <!-- gallery section starts  -->
+    <div>
+
+    <section class="gal" id="gallery">
+        <div class="gal_head"> 
+            <span class="sub">
+               <h1>Gallery</h1> 
+               
+            </span>
+        </div>
+            <div class="gal_subhead">
+                <h2 class="text">Our Hot Picked Cakes</h2>
+            </div>
+            
+            
+        
+        <div class="container">
+            <div class="row gallery">
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics">
+                 
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish1.jpg " alt="">
+                   
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics ">
+                  
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish2.jpg" alt="">
+                    
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics">
+                    
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish3.jpg" alt="">
+                   
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics">
+                
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish4.jpg" alt="">
+             
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics">
+                    
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish5.jpg" alt="">
+              
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics">
+             
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish6.jpg" alt="">
+               </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics">
+                    
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish7.jpg" alt="">
+                    
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 gallerypics">
+                    
+                        <img class="d-block pic1 w-100 gallery_pic" src="/images/dish8.jpg" alt="">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="ftco-section" id="chef">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-12 text-center heading-section ftco-animate">
+                <span class="subheading">Chef</span>
+                <h2 class="mb-4">Our Master Chef</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3 " data-aos="fade-up">
+                <div class="staff">
+                    <img class="img" src="/images/chef1.jpg" alt="">
+                    <div class="text pt-4">
+                        <h3>Navnit Kumar</h3>
+                        <span class="position mb-2">Cake Designer</span>
+                        <div class="faded">
+                            <ul class="ftco-social d-flex">
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 " data-aos="fade-up">
+                <div class="staff">
+                    <img class="img" src="/images/chef2.jpg" alt="">
+                    <div class="text pt-4">
+                        <h3>Nilay Hirpara</h3>
+                        <span class="position mb-2">Owner</span>
+                        <div class="faded">
+                            <ul class="ftco-social d-flex">
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                <div class="staff">
+                    <img class="img" src="/images/chef3.jpg" alt="">
+                    <div class="text pt-4">
+                        <h3>Ravi Kumawat</h3>
+                        <span class="position mb-2">Cake Maker</span>
+                        <div class="faded">
+                            <ul class="ftco-social d-flex">
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                <div class="staff">
+                    <img class="img" src="/images/chef4.jpg" alt="">
+                    <div class="text pt-4">
+                        <h3>Somyadeep Dey</h3>
+                        <span class="position mb-2">Manager</span>
+                        <div class="faded">
+                            <ul class="ftco-social d-flex">
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- footer section starts -->
+<section class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-6 col-lg-3">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">CAKE BAKERS</h2>
+                    <p>We serve and take all type of cake orders. You can personalised cake of your own choice. We
+                        have the best chef in the city working for us and happying serving to you.
+                        <br><br><br>
+                        cakebaker24/7@gmail.com
+                        <br>
+                        8888888888
+                    </p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Open Hours</h2>
+                    <ul class="list-unstyled open-hours">
+                        <li class="d-flex"><span>Monday</span><span>9:00 - 24:00</span></li>
+                        <li class="d-flex"><span>Tuesday</span><span>9:00 - 24:00</span></li>
+                        <li class="d-flex"><span>Wednesday</span><span>9:00 - 24:00</span></li>
+                        <li class="d-flex"><span>Thursday</span><span>9:00 - 24:00</span></li>
+                        <li class="d-flex"><span>Friday</span><span>9:00 - 02:00</span></li>
+                        <li class="d-flex"><span>Saturday</span><span>9:00 - 02:00</span></li>
+                        <li class="d-flex"><span>Sunday</span><span> 9:00 - 02:00</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Instagram</h2>
+                    <div class="thumb d-sm-flex">
+                        <a href="#" class="thumb-menu img"><img class="d-block pic1 w-100 inst" src="/images/insta-1.jpg" alt=""></a>
+                        <a href="#" class="thumb-menu img"><img class="d-block pic1 w-100 inst" src="/images/insta-2.jpg" alt=""></a>
+                        <a href="#" class="thumb-menu img"><img class="d-block pic1 w-100 inst" src="/images/insta-3.jpg" alt=""></a>
+                    </div>
+                    <div class="thumb d-sm-flex">
+                        <a href="#" class="thumb-menu img"><img class="d-block pic1 w-100 inst" src="/images/insta-4.jpg" alt=""></a>
+                        <a href="#" class="thumb-menu img"><img class="d-block pic1 w-100 inst" src="/images/insta-5.jpg" alt=""></a>
+                        <a href="#" class="thumb-menu img"><img class="d-block pic1 w-100 inst" src="/images/insta-6.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Newsletter</h2>
+                    <p>To get cake catalogue every month by subscribing below.</p>
+                    <form action="#" class="subscribe-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control mb-2 text-center"
+                                placeholder="johndoe@gmail.com">
+                            <input type="submit" value="Subscribe" class="form-control submit px-3">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/main.js" charset="utf-8"></script>
+
+    </body>
+</html>

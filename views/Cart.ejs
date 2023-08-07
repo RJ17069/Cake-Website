@@ -1,0 +1,56 @@
+<%- include('./layouts/header') %>
+<%- messages('message', locals) %>
+      
+        <div class="album bg-light" style="padding-top: 100px;">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-md-3">
+                <h3>Category</h3>
+              </div>
+              <div class="col-xs-12">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a href="/product">All Product</a>
+                  </li>
+                  <% c.forEach(function(c){%>
+                    <li class="list-group-item">
+                      <a href="/product/<%=c.slug%>"><%=c.title%></a>
+                    </li>
+                  <%})%>
+
+                </ul>
+              </div>
+              <div class="col-xs-12 col-md-8">
+
+              
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% product.forEach(function(products){ %>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img class="prd-img" src="product_image/<%= products.image %>" alt="" width="100%" height="225px">
+                  <div class="card-body">
+                    <div class="desc">
+                      <p class="card-text"><%= products.desc %></p>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center" style="padding-top: 10px;">
+                      <h5><%= products.title %></h5>
+                      <medium>Rs. <%= products.price %></medium>
+                    </div>
+                  </div>
+                  <% if(loggedin){ %>
+                  <a class="add-cart cart1" href="/cart/add/<%= products.slug %>"><h5>Add Cart</h5></a>
+                  <% } else { %>
+                    <p> You must be logged in to purchase item</p>
+                    <% } %>
+                </div>
+              </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <%- include('layouts/footer') %>
+

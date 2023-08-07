@@ -1,0 +1,60 @@
+<%- include('../layouts/adminheader') %>
+<%- messages('message', locals) %>
+
+    <div style="padding-top: 100px;">
+        <h2 class="page-title">Total No. Of Product</h2>
+    <a href="/admin/product/add-product" class="btn btn-primary" style="margin-left: 20px;">Back to all Pages adder</a>
+    <br><br>
+        <% if(count > 0){ %>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> Product </th>
+                        <th> Price </th>
+                        <th> Category </th>
+                        <th> Product Image </th>
+                        <th> Edit </th>
+                        <th> Delete </th>
+                    </tr>
+                </thead>
+                <tbody class="category">
+                    <% product.forEach(function(product){ %>
+                        <tr>
+                            <td><%= product.title %></td>
+                            <td><%= parseFloat(product.price).toFixed(2) %></td>
+                            <td><%= product.categories %></td>
+                            <td>
+                                <% if(product.image == ""){ %>
+                                    <img class="prd-img" src="/images/noimage.png" alt="" style="height: 100px; width: 100px;">
+            
+                                <%  }else{ %>
+                                    <img class="prd-img" src="/product_image/<%= product.image %>" alt="" style="height: 100px; width: 100px;">
+                                <% } %>
+                            </td>
+                            <td><a href="/admin/product/edit-product/<%= product.slug %>">Edit</a></td>
+                            <td class="confirm"><a href="/admin/product/delete-product/<%= product._id %>">Delete</a></td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        <% }else{ %>
+            <h3 class="text-center"> There is No Product</h3>
+        <% } %>
+
+
+
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+<!-- <script>
+    $('.category').sortable({
+        placeholder: "ui-state-hightlight",
+        update: function(){
+            var ids = $('.category').sortable("serialize");
+            var url = "/admin/categories/View-categories";
+
+            $.post(url, ids);
+        }
+    });
+</script> -->
+
+<%- include('../layouts/adminfooter') %>

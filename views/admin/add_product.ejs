@@ -1,0 +1,71 @@
+<%- include('../layouts/adminheader') %>
+<%- messages('message', locals) %>
+
+    <div style="padding-top: 100px;">
+        <h2 class="page-title">Add a Product</h2>
+    <a href="/admin/product/View-product" class="btn btn-primary" style="margin-left: 20px;">Back to all Pages</a>
+    <br><br>
+        <% if(typeof alert != 'undefined' ) { %>
+            <% alert.forEach(function(error) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= error.msg  %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% }); %>
+      <% } %>
+    <form  action="/admin/product/add-product" method="post" enctype="multipart/form-data" style="padding: 20px;">
+
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="">Description</label>
+            <textarea name="desc" cols="30" rows="10" placeholder="description"><%= desc %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Category</label>
+            <select name="category" class="form-control">
+                <% category.forEach(function(categories){ %>
+                    <% if (categories == ""){ %>
+                        <option value="There is no Category">There is no Category </option>
+                        <% } else { %>
+                    <option value="<%= categories.slug %>"><%= categories.title %></option>
+                    <% } %>
+                <% }); %>
+
+            </select>       
+         </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="number" class="form-control" name="price" value="<%= price %>" placeholder="Price">
+        </div>
+        <div class="form-group">
+            <label for="">Product Image</label>
+            <input type="file" class="form-control" name="file" id="img">
+            <img src="#" alt="" id="imgPreview">
+        </div>
+
+
+            <button type="submit" class="btn btn-dark">Submit</button>
+            
+    </form>
+    </div>
+    <script>
+        function readURL(input){
+            if (input.files && input.files[0]){  
+                var reader = new FileReader();
+
+                reader.onload = function(e){
+                    $('#imgPreview').attr('src', e.target.result).width(100).height(100);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+            $('#img').change(function(){
+                readURL(this);
+            });
+    </script>
+
+
+<%- include('../layouts/adminfooter') %>

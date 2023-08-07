@@ -1,0 +1,40 @@
+<%- include('../layouts/adminheader') %>
+<%- messages('message', locals) %>
+
+    <div style="padding-top: 100px;">
+        <h2 class="page-title">Total No. Of Pages</h2>
+    <a href="/admin/page/page-adder" class="btn btn-primary" style="margin-left: 20px;">Back to all Pages adder</a>
+    <br><br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Title </th>
+            <th> Edit </th>
+            <th> Delete </th>
+        </tr>
+    </thead>
+    <tbody class="category">
+        <% category.forEach(function(category){ %>
+            <tr id="id_<%= category._id %>" class="<%= category.slug %>">
+                <td><%= category.title %></td>
+                <td><a href="/admin/categories/edit-categories/<%= category.slug %>">Edit</a></td>
+                <td class="confirm"><a href="/admin/categories/delete-categories/<%= category._id %>">Delete</a></td>
+            </tr>
+            <% }); %>
+    </tbody>
+</table>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+<script>
+    $('.category').sortable({
+        placeholder: "ui-state-hightlight",
+        update: function(){
+            var ids = $('.category').sortable("serialize");
+            var url = "/admin/categories/View-categories";
+
+            $.post(url, ids);
+        }
+    });
+</script>
+
+<%- include('../layouts/adminfooter') %>

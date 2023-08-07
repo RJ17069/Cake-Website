@@ -1,0 +1,28 @@
+<%- include('../layouts/adminheader') %>
+<%- messages('message', locals) %>
+
+    <div style="padding-top: 100px;">
+        <h2 class="page-title">Edit a Page</h2>
+    <a href="/admin/page/" class="btn btn-primary" style="margin-left: 20px;">Back to all Pages</a>
+    <br><br>
+        <% if(typeof alert != 'undefined' ) { %>
+            <% alert.forEach(function(error) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= error.msg  %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% }); %>
+      <% } %>
+    <form action="/admin/categories/edit-categories/<%= id %>" method="post" style="padding: 20px;">
+
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+        </div>
+            <button class="btn btn-dark">Submit</button>
+    </form>
+    </div>
+
+
+
+<%- include('../layouts/adminfooter') %>
