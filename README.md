@@ -1,8 +1,10 @@
 # Cake-Website
 
-# Cake website project is a intership project in which it consist of
-# 1.Login page
-# 2.Register page 
+Cake website project is a intership project in which it consist of
+
+1.Login page
+
+2.Register page 
 3.Home page
 4.Product Page
 5.Cart
